@@ -8,7 +8,8 @@ const resolvers = {
         $or: [{ _id: user ? user._id : params.id }, { username: params.username }],
       });
       if (!foundUser) {
-        throw new Error ('Cannot find user');
+        console.log('Cannot find user')
+        return null;
       } 
       return foundUser;
     }
@@ -28,7 +29,8 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addUser: async (parent,{body}) => {
+    addUser: async (parent,body) => {
+      console.log(body);
       const user = await User.create(body);
 
       if (!user) {
@@ -38,12 +40,11 @@ const resolvers = {
 
       return { token, user };
     },
-    saveBook: async (parent, {user, body}) => {
-      console.log(user);
+    saveBook: async (parent, {input} ,context) => {
       try {
         const updatedUser = await User.findOneAndUpdate(
-          { _id: user._id },
-          { $addToSet: { savedBooks: body } },
+          { _id: context.user._id },
+          { $addToSet: { savedBooks: input } },
           { new: true, runValidators: true }
         );
         return updatedUser;
