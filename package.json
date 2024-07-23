@@ -13,10 +13,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "devDependencies": {
-    "concurrently": "^8.2.0"
-  },
   "dependencies": {
+    "concurrently": "^8.2.0",
     "@apollo/client": "^3.10.8",
     "@apollo/server": "^4.10.4",
     "@testing-library/react": "^16.0.0",
