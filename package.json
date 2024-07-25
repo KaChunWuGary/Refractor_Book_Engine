@@ -14,10 +14,11 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "concurrently": "^8.2.0",
     "@apollo/client": "^3.10.8",
     "@apollo/server": "^4.10.4",
     "@testing-library/react": "^16.0.0",
+    "concurrently": "^8.2.0",
+    "dotenv": "^16.4.5",
     "graphql": "^16.9.0",
     "happy-dom": "^14.12.3",
     "react-redux": "^9.1.2",
