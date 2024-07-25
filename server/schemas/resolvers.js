@@ -33,9 +33,6 @@ const resolvers = {
       console.log(body);
       const user = await User.create(body);
 
-      if (!user) {
-        throw new Error ('Cannot create User!');
-      }
       const token = signToken(user);
 
       return { token, user };
